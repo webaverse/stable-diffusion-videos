@@ -68,7 +68,7 @@ class Interface:
 		# output_dir,
 	):
 		output_path = '../dreams'
-		os.path.exists(output_path):
+		if os.path.exists(output_path):
 			os.remove(output_path)
 		prompts = [x.strip() for x in prompts.split('\n') if x.strip()]
 		seeds = [int(x.strip()) for x in seeds.split('\n') if x.strip()]
