@@ -30,7 +30,7 @@ class Interface:
 		self.interface_videos = gr.Interface(
 			self.fn_videos,
 			inputs=[
-				gr.Audio(source='upload'),
+				gr.Audio(source='upload', type='filepath'),
 				gr.Textbox('blueberry spaghetti\nstrawberry spaghetti', lines=2, label='Prompts, separated by new line'),
 				gr.Textbox('42\n1337', lines=2, label='Seeds, separated by new line'),
 				# gr.Slider(3, 1000, 5, step=1, label='# Interpolation Steps between prompts'),
