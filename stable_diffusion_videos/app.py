@@ -65,9 +65,9 @@ class Interface:
 		height,
 		width,
 		upsample,
-		# output_dir,
+		output_dir,
 	):
-		output_path = '../dreams'
+		output_path = './dreams'
 		if os.path.exists(output_path):
 			os.remove(output_path)
 		prompts = [x.strip() for x in prompts.split('\n') if x.strip()]
