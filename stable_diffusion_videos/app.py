@@ -31,17 +31,17 @@ class Interface:
 			self.fn_videos,
 			inputs=[
 				gr.Audio(source='upload', type='filepath'),
-				gr.Textbox('blueberry spaghetti\nstrawberry spaghetti', lines=2, label='Prompts, separated by new line'),
-				gr.Textbox('42\n1337', lines=2, label='Seeds, separated by new line'),
+				gr.Textbox('blueberry spaghetti, strawberry spaghetti', lines=1, label='Prompts, separated by new line'),
+				gr.Textbox('42, 1337', lines=1, label='Seeds, separated by new line'),
 				# gr.Slider(3, 1000, 5, step=1, label='# Interpolation Steps between prompts'),
-				gr.Textbox('1\n3', lines=2, label='Audio offsets, first param: start second, second param: duration in seconds'),
+				gr.Textbox('1,3', lines=1, label='Audio offsets, first param: start second, second param: duration in seconds'),
 				gr.Slider(3, 60, 5, step=1, label='Output Video FPS'),
 				gr.Slider(1, 24, 1, step=1, label='Batch size'),
 				gr.Slider(10, 100, 50, step=1, label='# Inference Steps'),
 				gr.Slider(5.0, 15.0, 7.5, step=0.5, label='Guidance Scale'),
 				gr.Slider(512, 1024, 512, step=64, label='Height'),
 				gr.Slider(512, 1024, 512, step=64, label='Width'),
-				gr.Checkbox(False, label='Upsample'),
+				# gr.Checkbox(False, label='Upsample'),
 				# gr.Textbox('./dreams', label='Output directory to save results to'),
 			],
 			outputs=gr.Video(),
@@ -64,15 +64,15 @@ class Interface:
 		guidance_scale,
 		height,
 		width,
-		upsample,
+		# upsample,
 		# output_dir,
 	):
 		output_path = '../output'
 		if os.path.exists(output_path):
 			os.remove(output_path)
-		prompts = [x.strip() for x in prompts.split('\n') if x.strip()]
-		seeds = [int(x.strip()) for x in seeds.split('\n') if x.strip()]
-		audio_offsets = [int(x.strip()) for x in audio_offsets.split('\n') if x.strip()]
+		prompts = [x.strip() for x in prompts.split(',' or ', ') if x.strip()]
+		seeds = [int(x.strip()) for x in seeds.split(',' or ', ') if x.strip()]
+		audio_offsets = [int(x.strip()) for x in audio_offsets.split(',') if x.strip()]
 
 		num_interpolation_steps = [(b-a) * fps for a, b in zip(audio_offsets, audio_offsets[1:])]
 
@@ -81,14 +81,14 @@ class Interface:
 			seeds=seeds,
 			num_interpolation_steps=num_interpolation_steps,
 			audio_filepath=audio,
-			audio_start_sec=audio_offsets[0], 
+			audio_start_sec=audio_offsets[0],
 			fps=fps,
 			height=height,
 			width=width,
 			output_dir='./output',
 			guidance_scale=guidance_scale,
 			num_inference_steps=num_inference_steps,
-			upsample=upsample,
+			# upsample=upsample,
 			batch_size=batch_size
 		)
 
