@@ -31,10 +31,10 @@ class Interface:
 			self.fn_videos,
 			inputs=[
 				gr.Audio(source='upload', type='filepath'),
-				gr.Textbox('blueberry spaghetti, strawberry spaghetti', lines=1, label='Prompts, separated by new line'),
-				gr.Textbox('42, 1337', lines=1, label='Seeds, separated by new line'),
+				gr.Textbox('blueberry spaghetti, strawberry spaghetti', lines=1, label='Prompts, separated by comma'),
+				gr.Textbox('42, 1337', lines=1, label='Seeds, separated by comma'),
 				# gr.Slider(3, 1000, 5, step=1, label='# Interpolation Steps between prompts'),
-				gr.Textbox('1,3', lines=1, label='Audio offsets, first param: start second, second param: duration in seconds'),
+				gr.Textbox('1,3', lines=1, label='Audio offsets, separated by comma. First param: start second, second param: duration in seconds'),
 				gr.Slider(3, 60, 5, step=1, label='Output Video FPS'),
 				gr.Slider(1, 24, 1, step=1, label='Batch size'),
 				gr.Slider(10, 100, 50, step=1, label='# Inference Steps'),
