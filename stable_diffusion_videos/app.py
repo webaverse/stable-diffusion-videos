@@ -65,9 +65,9 @@ class Interface:
 		height,
 		width,
 		upsample,
-		output_dir,
+		# output_dir,
 	):
-		output_path = './dreams'
+		output_path = '../output'
 		if os.path.exists(output_path):
 			os.remove(output_path)
 		prompts = [x.strip() for x in prompts.split('\n') if x.strip()]
@@ -85,7 +85,7 @@ class Interface:
 			fps=fps,
 			height=height,
 			width=width,
-			output_dir='./dreams',
+			output_dir='./output',
 			guidance_scale=guidance_scale,
 			num_inference_steps=num_inference_steps,
 			upsample=upsample,
