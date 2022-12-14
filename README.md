@@ -1,5 +1,23 @@
 # stable-diffusion-videos
 
+## Webaverse implementation
+
+### Info
+
+- prompts: list of text prompts separated by comma. Defaults to None.
+- seeds list of random seeds corresponding to prompts, separated by comma. Defaults to None.
+- audio offsets: audio offsets separated by comma, corresponding to initial second and duration. Default: 1, 3
+- num_interpolation_steps: How many interpolation steps between each prompt. Defaults to None.
+- fps: The frames per second in the resulting output videos.
+- batch_size: Number of images to generate at once. Use with care.
+- num_inference_steps: The number of denoising steps. More denoising steps usually lead to a higher quality image at the expense of slower inference.
+- guidance_scale: Guidance scale as defined in [Classifier-Free Diffusion Guidance](https://arxiv.org/abs/2207.12598). `guidance_scale` is defined as `w` of equation 2. of [Imagen Paper](https://arxiv.org/pdf/2205.11487.pdf). Guidance scale is enabled by setting `guidance_scale >
+    1`. Higher guidance scale encourages to generate images that are closely linked to the text `prompt`, usually at the expense of lower image quality.
+- height: height of the images to generate.
+- width: width of the images to generate.
+
+## 
+
 Try it yourself in Colab: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nateraw/stable-diffusion-videos/blob/main/stable_diffusion_videos.ipynb)
 
 **Example** - morphing between "blueberry spaghetti" and "strawberry spaghetti"
