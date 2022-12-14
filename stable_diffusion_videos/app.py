@@ -34,7 +34,7 @@ class Interface:
 				gr.Textbox('blueberry spaghetti\nstrawberry spaghetti', lines=2, label='Prompts, separated by new line'),
 				gr.Textbox('42\n1337', lines=2, label='Seeds, separated by new line'),
 				# gr.Slider(3, 1000, 5, step=1, label='# Interpolation Steps between prompts'),
-				gr.Textbox('7\n9', lines=2, label='Audio offsets, first param: start second, second param: duration in seconds'),
+				gr.Textbox('1\n3', lines=2, label='Audio offsets, first param: start second, second param: duration in seconds'),
 				gr.Slider(3, 60, 5, step=1, label='Output Video FPS'),
 				gr.Slider(1, 24, 1, step=1, label='Batch size'),
 				gr.Slider(10, 100, 50, step=1, label='# Inference Steps'),
